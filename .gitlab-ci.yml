@@ -1,0 +1,67 @@
+image: node:lts
+
+stages:
+  - build
+
+  - test
+
+  - deploy
+
+variables:
+  FF_USE_FASTZIP: "true"
+  ARTIFACT_COMPRESSION_LEVEL: fastest
+  CACHE_COMPRESSION_LEVEL: fastest
+  TRANSFER_METER_FREQUENCY: 5s
+
+cache:
+  - key:
+      files:
+        - package-lock.json
+
+    paths:
+      - node_modules/
+
+install:
+  stage: build
+
+  script:
+    - npm install
+
+  artifacts:
+    paths:
+      - node_modules/
+
+prettier:
+  stage: test
+
+  script:
+    - npm run prettier
+
+  allow_failure: false
+
+lint:
+  stage: test
+
+  script:
+    - npm run lint
+
+  allow_failure: false
+
+#jest:
+#  stage: test
+
+#  script:
+#    - npm run jest
+
+#  allow_failure: false
+
+#deploy:
+#  stage: deploy
+
+#  script:
+#    - npm run build
+#    - npx netlify-cli deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --prod
+
+#  rules:
+#    - if: '$CI_COMMIT_BRANCH == "master"'
+#    - when: always

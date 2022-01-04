@@ -1,0 +1,24 @@
+pre-push:
+  commands:
+    lint:
+      glob: "*.{js,ts}"
+      run: npm run lint
+    prettier:
+      glob: "*.{js,ts}"
+      run: npm run prettier
+    jest:
+      glob: "*.{js,ts}"
+      run: npm run jest
+
+pre-commit:
+  parallel: true
+  commands:
+    lint:
+      glob: "*.{js,ts}"
+      run: npm run lint
+    prettier:
+      glob: "*.{js,ts}"
+      run: npm run prettier
+    jest:
+      glob: "*.{js,ts}"
+      run: npm run jest
