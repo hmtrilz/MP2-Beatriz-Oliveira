@@ -8,7 +8,7 @@ export const fetchWeatherAction = createAsyncThunk(
     //resposta, erro warning, acesso à store, dispatch da action
     try {
       const { data } = await axios.get(
-        `http://api.openweathermap.org/data/2.5/weather?q=${payload}&appid=${process.env.REACT_APP_API_KEY}`
+        `http://api.openweathermap.org/data/2.5/weather?q=${payload}&&units=metric&appid=${process.env.REACT_APP_API_KEY}`
       )
       return data
     } catch (error) {
