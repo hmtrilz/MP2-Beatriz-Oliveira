@@ -19,7 +19,10 @@
     "react/jsx-no-comment-textnodes": "warn",
     "react/jsx-no-duplicate-props": "warn",
     "react/jsx-no-target-blank": "warn",
-    "react/jsx-no-undef": "error"
+    "react/jsx-no-undef": "error",
+      // suppress errors for missing 'import React' in files
+ "react/react-in-jsx-scope": "off",
+ "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
   },
   "settings": {
     "react": {
@@ -27,3 +30,4 @@
     }
   }
 }
+
