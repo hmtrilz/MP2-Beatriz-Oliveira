@@ -1,0 +1,29 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
+  },
+  "extends": ["eslint:recommended", "plugin:react/recommended"],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 13,
+    "sourceType": "module"
+  },
+  "plugins": ["react"],
+  "rules": {
+    "react/prop-types": "off",
+    "react/forbid-foreign-prop-types": ["warn", { "allowInPropTypes": true }],
+    "react/jsx-no-comment-textnodes": "warn",
+    "react/jsx-no-duplicate-props": "warn",
+    "react/jsx-no-target-blank": "warn",
+    "react/jsx-no-undef": "error"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  }
+}

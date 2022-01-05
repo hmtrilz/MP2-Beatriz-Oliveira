@@ -1,17 +1,17 @@
-import { useEffect } from "react"
-import { fetchWeatherAction } from "../redux/slices/weatherSlices"
-import { useDispatch, useSelector } from "react-redux"
+import { useEffect } from "react";
+import { fetchWeatherAction } from "../redux/slices/weatherSlices";
+import { useDispatch, useSelector } from "react-redux";
 
 function StaticPage() {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchWeatherAction("Aveiro"))
-  }, [])
+    dispatch(fetchWeatherAction("Aveiro"));
+  }, []);
 
-  const state = useSelector((state) => state)
+  const state = useSelector((state) => state);
 
-  const { weather } = state
+  const { weather } = state;
   return (
     <div>
       {/* content */}
@@ -45,7 +45,7 @@ function StaticPage() {
         />
       </div>
     </div>
-  )
+  );
 }
 
-export default StaticPage
+export default StaticPage;

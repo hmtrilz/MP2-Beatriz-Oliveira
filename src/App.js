@@ -1,13 +1,13 @@
-import React from "react"
+import React from "react";
 import {
   BrowserRouter as BrowserRouter,
   Routes,
   Route,
   Link,
-} from "react-router-dom"
-import Details from "./components/Details"
-import Home from "./components/Home"
-import StaticPage from "./components/StaticPage"
+} from "react-router-dom";
+import Details from "./components/Details";
+import Home from "./components/Home";
+import StaticPage from "./components/StaticPage";
 
 function App() {
   return (
@@ -36,7 +36,7 @@ function App() {
         </Routes>
       </div>
     </BrowserRouter>
-  )
+  );
 }
 
-export default App
+export default App;

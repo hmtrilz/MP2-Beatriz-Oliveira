@@ -46,7 +46,6 @@ lint:
     - npm run lint
 
   allow_failure: false
-
 #jest:
 #  stage: test
 

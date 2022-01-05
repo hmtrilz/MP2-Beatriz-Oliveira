@@ -1,25 +1,25 @@
-import { useEffect, useState } from "react"
-import { useDispatch, useSelector } from "react-redux"
-import { fetchWeatherAction } from "../redux/slices/weatherSlices"
-import Details from "./Details"
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchWeatherAction } from "../redux/slices/weatherSlices";
+import Details from "./Details";
 
 function Home() {
   //search city
-  const [city, setCity] = useState("Aveiro")
+  const [city, setCity] = useState("Aveiro");
   //dispatch action
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchWeatherAction("Aveiro"))
-  }, [])
+    dispatch(fetchWeatherAction("Aveiro"));
+  }, []);
   // console.log(process.env.REACT_APP_API_KEY)
 
   //select state from store
 
-  const state = useSelector((state) => state)
+  const state = useSelector((state) => state);
   // console.log(state)
 
-  const { weather, loading, error } = state
+  const { weather, loading, error } = state;
 
   return (
     <div>
@@ -49,7 +49,7 @@ function Home() {
         <Details></Details>
       )}
     </div>
-  )
+  );
 }
 
-export default Home
+export default Home;

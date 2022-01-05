@@ -1,5 +1,5 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
-import axios from "axios"
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import axios from "axios";
 
 //action
 export const fetchWeatherAction = createAsyncThunk(
@@ -9,16 +9,16 @@ export const fetchWeatherAction = createAsyncThunk(
     try {
       const { data } = await axios.get(
         `http://api.openweathermap.org/data/2.5/weather?q=${payload}&&units=metric&appid=${process.env.REACT_APP_API_KEY}`
-      )
-      return data
+      );
+      return data;
     } catch (error) {
       if (!error?.response) {
-        throw error
+        throw error;
       }
-      return rejectWithValue(error?.response?.data)
+      return rejectWithValue(error?.response?.data);
     }
   }
-)
+);
 
 //slices
 const weatherSlice = createSlice({
@@ -27,21 +27,21 @@ const weatherSlice = createSlice({
   extraReducers: (builder) => {
     //pending
     builder.addCase(fetchWeatherAction.pending, (state, action) => {
-      state.loading = true
-    })
+      state.loading = true;
+    });
     //fulfilled
     builder.addCase(fetchWeatherAction.fulfilled, (state, action) => {
-      state.weather = action?.payload
-      state.loading = false
-      state.error = undefined
-    })
+      state.weather = action?.payload;
+      state.loading = false;
+      state.error = undefined;
+    });
     //rejected
     builder.addCase(fetchWeatherAction.rejected, (state, action) => {
-      state.loading = false
-      state.weather = undefined
-      state.error = action?.payload
-    })
+      state.loading = false;
+      state.weather = undefined;
+      state.error = action?.payload;
+    });
   },
-})
+});
 
-export default weatherSlice.reducer
+export default weatherSlice.reducer;

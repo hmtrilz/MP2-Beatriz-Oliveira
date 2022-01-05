@@ -1,11 +1,11 @@
-import { useSelector } from "react-redux"
+import { useSelector } from "react-redux";
 
 function Details() {
   //select state from store
 
-  const state = useSelector((state) => state)
+  const state = useSelector((state) => state);
 
-  const { weather, loading, error } = state
+  const { weather, loading, error } = state;
 
   return (
     <div>
@@ -40,7 +40,7 @@ function Details() {
         />
       </div>
     </div>
-  )
+  );
 }
 
-export default Details
+export default Details;
