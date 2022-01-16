@@ -1,55 +1,51 @@
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchWeatherAction } from "../redux/slices/weatherSlices";
-import Details from "./Details";
+import { ThemeProvider } from "styled-components"
+import { Link } from "react-router-dom"
+import {
+  Container,
+  Button,
+  BackgroundLayer,
+  Box,
+  ImgLogo,
+} from "./styles/Home.styled"
+import GlobalStyles from "./styles/Global.styles"
 
-function Home() {
-  //search city
-  const [city, setCity] = useState("Aveiro");
-  //dispatch action
-  const dispatch = useDispatch();
+const logo = require("./imgs/hanging.png")
 
-  useEffect(() => {
-    dispatch(fetchWeatherAction("Aveiro"));
-  }, []);
-  // console.log(process.env.REACT_APP_API_KEY)
-
-  //select state from store
-
-  const state = useSelector((state) => state);
-  // console.log(state)
-
-  const { weather, loading, error } = state;
-
-  return (
-    <div>
-      {/* search bar */}
-      <div>
-        <h2>Home</h2>
-        <h2>Posso meter a roupa a secar lá fora?</h2>
-        <input
-          onClick={() => dispatch(fetchWeatherAction(city))}
-          value={city}
-          onChange={(e) => setCity(e.target.value)}
-          placeholder="Procura a tua cidade"
-        ></input>
-        <button
-          onClick={() => dispatch(fetchWeatherAction(city))}
-          type="button"
-        >
-          Search
-        </button>
-      </div>
-      {/* content */}
-      {loading ? (
-        <h1> Calma aí campeão que está a carregar </h1>
-      ) : error ? (
-        <h1>{error?.message}</h1>
-      ) : (
-        <Details></Details>
-      )}
-    </div>
-  );
+const theme = {
+  colors: {
+    lightblue: "#80A6F2",
+    blue: "#4E74BF",
+    darkblue: "#172940",
+    gray: "#F0F1F2",
+    yellow: "#F2CA52",
+    white: "#FFFF",
+  },
 }
 
-export default Home;
+function Home() {
+  return (
+    <ThemeProvider theme={theme}>
+      <GlobalStyles />
+      <Container>
+        <BackgroundLayer />
+        <Box>
+          <ImgLogo src={logo} />
+          <h1>Descobre se podes ou não meter a roupa a secar</h1>
+          <h2>
+            De certeza que já te aconteceu esqueceres-te do estendal da roupa lá
+            fora e começar a chover.
+          </h2>
+          <h2>
+            Verifica o tempo na tua cidade e decide se vais meter a roupa a
+            secar lá fora!
+          </h2>
+          <Link to="/details" style={{ textDecoration: "none" }}>
+            <Button>Next</Button>
+          </Link>
+        </Box>
+      </Container>
+    </ThemeProvider>
+  )
+}
+
+export default Home
