@@ -49,4 +49,22 @@ const weatherSlice = createSlice({
 
 export default weatherSlice.reducer
 
-//-------------------------------------
+export const fetchCity = createAsyncThunk(
+  "weather/fetch",
+  async (payload, { rejectWithValue /*getState, dispatch*/ }) => {
+    //resposta, erro warning, acesso à store, dispatch da action
+
+    const { city, unit } = payload
+    try {
+      const { data } = await axios.get(
+        `http://api.openweathermap.org/data/2.5/weather?q=${city}&&units=${unit}&appid=${process.env.REACT_APP_API_KEY}`
+      )
+      return data
+    } catch (error) {
+      if (!error?.response) {
+        throw error
+      }
+      return rejectWithValue(error?.response?.data)
+    }
+  }
+)

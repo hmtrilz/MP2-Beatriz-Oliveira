@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux"
 import { fetchWeatherAction } from "../redux/slices/weatherSlices"
 import Countries from "../countries.json"
 import ReactPaginate from "react-paginate"
+import "./styles/Pagination.css"
+import GlobalStyles from "./styles/Global.styles"
 import {
   CountryContainer,
   Container,
@@ -15,6 +17,12 @@ import {
   WeatherContent,
   WeatherContainer,
   InfoContent,
+  WeatherIcon,
+  UnitButton,
+  CityTitle,
+  Temp,
+  WeatherText,
+  FaceCard,
 } from "./styles/Details.styled"
 
 function Details() {
@@ -35,8 +43,12 @@ function Details() {
     .slice(pagesVisited, pagesVisited + countriesPerPage)
     .map((item) => {
       return (
-        <div key={item.country}>
-          <h5> {item.city}</h5>
+        <div key={item.city}>
+          <div>
+            <FaceCard onClick={() => setCity(item.city)}>
+              <div>{item.city}</div>
+            </FaceCard>
+          </div>
         </div>
       )
     })
@@ -56,16 +68,17 @@ function Details() {
 
   useEffect(() => {
     dispatch(fetchWeatherAction({ city, unit }))
-  }, [unit])
+  }, [city, unit])
   // console.log(process.env.REACT_APP_API_KEY)
 
   const { weather, loading, error } = state
 
   return (
     <div>
+      <GlobalStyles />
       {/* search bar */}
       <TopContainer>
-        <h2>Can I put my clothes outside?</h2>
+        <h1>Can I put my clothes outside?</h1>
         <SearchContainer>
           <SearchBar
             value={city}
@@ -91,45 +104,53 @@ function Details() {
             <WeatherContainer>
               <WeatherSide>
                 <WeatherContent>
-                  <h>
-                    {weather?.name}, {weather?.sys?.country}
-                  </h>
+                  <CityTitle>
+                    {weather?.name} {weather?.sys?.country}{" "}
+                  </CityTitle>
                   {/* actually weather */}
-                  <img
+                  <WeatherIcon
                     src={
                       !loading &&
                       `https://openweathermap.org/img/wn/${weather?.weather[0].icon}@2x.png`
                     }
                     alt="/"
                   />
-                  <h2> {weather?.weather[0].main} </h2>
-
-                  {/* temperatura */}
-                  <h2>
+                  <Temp>
                     {Math.ceil(Number(weather?.main.temp))}{" "}
                     {unit === "metric"
                       ? "º C"
                       : unit === "imperial"
                       ? "F"
                       : "K"}
-                  </h2>
-                  <button onClick={() => setUnit("metric")}>Celcius</button>
-                  <button onClick={() => setUnit("imperial")}>
+                  </Temp>
+                  <WeatherText> {weather?.weather[0].main} </WeatherText>
+
+                  {/* temperatura */}
+
+                  <UnitButton onClick={() => setUnit("metric")}>
+                    Celcius
+                  </UnitButton>
+                  <UnitButton onClick={() => setUnit("imperial")}>
+                    {" "}
                     Fahrenheit
-                  </button>
-                  <button onClick={() => setUnit("standard")}>Kelvin</button>
+                  </UnitButton>
+                  <UnitButton onClick={() => setUnit("standard")}>
+                    Kelvin
+                  </UnitButton>
                 </WeatherContent>
               </WeatherSide>
+
               <InfoSide>
                 <InfoContent>
-                  <p>{weather?.name}</p> {/* weather name */}
-                  <p>{weather?.sys.country}</p> {/* weather country*/}
-                  <p>{weather?.weather[0].description}</p>{" "}
-                  {/* weather description */}
-                  <p>{Math.ceil(Number(weather?.main.temp))}</p>{" "}
+                  <p>Description: {weather?.weather[0].description}</p>
+                  <p>Low: {weather?.main?.temp_min} % </p>
+                  <p>High: {weather?.main?.temp_max} % </p>
                   {/* weather temp */}
-                  <p>{weather?.main?.humidity} % </p> {/* weather humidity */}
-                  <p>{weather?.wind?.speed} </p> {/* weather humidity */}
+                  <p>Humidity: {weather?.main?.humidity} % </p>
+                  <p>Pressure: {weather?.main?.pressure} % </p>
+                  {/* weather humidity */}
+                  <p> Wind: {weather?.wind?.speed} mph </p>{" "}
+                  {/* weather humidity */}
                 </InfoContent>
               </InfoSide>
             </WeatherContainer>
@@ -137,20 +158,19 @@ function Details() {
         )
       )}
       {/* contries list */}
-      <CountryContainer>
-        {displayCountries}
-        <ReactPaginate
-          previousLabel={"Previous"}
-          nextLabel={"Next"}
-          pageCount={pageCount}
-          onPageChange={changePage}
-          containerClassName={"paginationButton"}
-          previousLinkClassName={"previousButton"}
-          nextLinkClassName={"nextButton"}
-          disabledClassName={"paginationDisabled"}
-          activeClassName={"paginationActive"}
-        />
-      </CountryContainer>
+      <CountryContainer>{displayCountries}</CountryContainer>
+
+      <ReactPaginate
+        previousLabel={"Previous"}
+        nextLabel={"Next"}
+        pageCount={pageCount}
+        onPageChange={changePage}
+        containerClassName={"paginationButton"}
+        previousLinkClassName={"previousButton"}
+        nextLinkClassName={"nextButton"}
+        disabledClassName={"paginationDisabled"}
+        activeClassName={"paginationActive"}
+      />
     </div>
   )
 }

@@ -100,8 +100,8 @@
         "city": "The Valley"
     },
     {
-        "country": "Antarctica",
-        "city": null
+        "country": "Spain",
+        "city": "Barcelona"
     },
     {
         "country": "Antigua and Barbuda",
@@ -149,7 +149,7 @@
     },
     {
         "country": "Belgium",
-        "city": "Bruxelles [Brussel]"
+        "city": "Bruxelles"
     },
     {
         "country": "Belize",
@@ -180,20 +180,20 @@
         "city": "Gaborone"
     },
     {
-        "country": "Bouvet Island",
-        "city": null
+        "country": "England",
+        "city": "Brighton"
     },
     {
         "country": "Brazil",
         "city": "Brasília"
     },
     {
-        "country": "British Indian Ocean Territory",
-        "city": null
+        "country": "France",
+        "city": "Nantes"
     },
     {
         "country": "Brunei",
-        "city": "Bandar Seri Begawan"
+        "city": "Brunei"
     },
     {
         "country": "Bulgaria",
@@ -356,8 +356,8 @@
         "city": "Papeete"
     },
     {
-        "country": "French Southern territories",
-        "city": null
+        "country": "Portugal",
+        "city": "Aveiro"
     },
     {
         "country": "Gabon",
@@ -421,8 +421,8 @@
         "city": "Port-au-Prince"
     },
     {
-        "country": "Heard Island and McDonald Islands",
-        "city": null
+        "country": "Howland",
+        "city": "Howland"
     },
     {
         "country": "Holy See (Vatican City State)",
@@ -834,8 +834,8 @@
         "city": "Pretoria"
     },
     {
-        "country": "South Georgia and the South Sandwich Islands",
-        "city": null
+        "country": "Portugal",
+        "city": "Sintra"
     },
     {
         "country": "South Sudan",
@@ -843,7 +843,7 @@
     },
     {
         "country": "Sri Lanka",
-        "city": null
+        "city": "Colombo"
     },
     {
         "country": "Sudan",
@@ -935,7 +935,7 @@
     },
     {
         "country": "United States Minor Outlying Islands",
-        "city": null
+        "city": "Honolulu"
     },
     {
         "country": "Uruguay",

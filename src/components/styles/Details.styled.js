@@ -21,9 +21,9 @@ export const Container = styled.div`
 `
 
 export const SearchButton = styled.button`
-  background: transparent;
+  background: white;
   border-radius: 999px;
-  box-shadow: #ffff 0 10px 15px -10px;
+  box-shadow: #172940 0 10px 15px -10px;
   margin: 0 0 0 15px;
   box-sizing: border-box;
   cursor: pointer;
@@ -31,7 +31,6 @@ export const SearchButton = styled.button`
   font-weight: 500;
   line-height: 14px;
   opacity: 1;
-  outline: 1px solid #80a6f2;
   padding: 10px 30px;
   width: fit-content;
 `
@@ -69,21 +68,12 @@ export const SearchBar = styled.input`
   }
 `
 
-export const CountryContainer = styled.div`
-  margin-top: 5rem;
-  position: relative;
-`
-
 export const WeatherContainer = styled.div`
-  align-items: center;
-  margin-bottom: 6rem;
   background-color: #80a6f2;
   border-radius: 25px;
-  height: 400px;
-  width: 50%;
 `
 export const WeatherContent = styled.div`
-  margin: 50px 0 0 40px;
+  margin: 50px 0 50px 40px;
   color: #172940;
 `
 
@@ -92,19 +82,82 @@ export const WeatherSide = styled.div`
   border-radius: 25px;
   background-image: url(${img});
   width: 400px;
-  -webkit-box-shadow: 0 0 20px -10px rgba(0, 0, 0, 0.2);
-  box-shadow: 0 0 20px -10px rgba(0, 0, 0, 0.2);
+  position: relative;
   float: left;
+  z-index: 99;
+  box-shadow: #172940 0 10px 30px -10px;
 `
 export const InfoSide = styled.div`
   position: relative;
   color: white;
   height: 100%;
-  padding: 40px;
+  padding: 70px;
   margin: 0 25px 25px 25px;
   /* 	box-shadow: 0 0 50px -5px rgba(0, 0, 0, 0.25); */
   border-radius: 10px;
 `
 export const InfoContent = styled.div`
-  margin: 20px 0 0 31rem;
+  margin: -30px 10rem 0 28rem;
+  font-size: 15px;
+`
+export const WeatherIcon = styled.img`
+  margin: 0 0 2rem 0;
+`
+export const UnitButton = styled.button`
+  background: white;
+  border-radius: 999px;
+  box-shadow: #ffff 0 10px 15px -10px;
+  margin: 0 7px 0 0;
+  box-sizing: border-box;
+  cursor: pointer;
+  font-size: 10px;
+  font-weight: 300;
+  line-height: 12px;
+  opacity: 1;
+  padding: 8px 25px;
+  width: fit-content;
+`
+export const CityTitle = styled.h2`
+  font-size: 20px;
+  color: white;
+`
+export const Temp = styled.h1`
+  font-size: 40px;
+  color: white;
+  margin: 0 0 6px 0;
+`
+export const WeatherText = styled.h3`
+  font-size: 15px;
+  color: white;
+  margin: 0 0 30px 0;
+`
+export const CountryContainer = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 3rem;
+  margin: 8rem 30rem 8rem 30rem;
+`
+
+export const FaceCard = styled.div`
+  background-color: white;
+  border: 1px solid #4e74bf;
+  justify-content: center;
+  font-size: 15px;
+  align-items: center;
+  display: flex;
+  color: #172940;
+  border-radius: 20px;
+  cursor: pointer;
+  margin: rem;
+  height: 5rem;
+  -o-transition: color 0.15s ease-in;
+  -webkit-transition: color 0.2s ease-in;
+  box-shadow: #172940 0 10px 15px -10px;
+
+  &:hover,
+  &:focus {
+    background-color: #4e74bf;
+    color: white;
+    transform: scale(0.98);
+  }
 `

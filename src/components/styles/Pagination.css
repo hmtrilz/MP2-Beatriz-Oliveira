@@ -1,0 +1,25 @@
+.paginationButton {
+  height: 40px;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+.paginationButton a {
+  padding: 10px;
+  margin: 8px;
+  border-radius: 5px;
+  border: 1px solid #4e74bf;
+  color: #4e74bf;
+  cursor: pointer;
+}
+
+.paginationButton a:hover {
+  color: white;
+  background-color: #4e74bf;
+}
+
+.paginationActive a {
+  color: white;
+  background-color: #4e74bf;
+}
