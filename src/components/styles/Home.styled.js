@@ -5,7 +5,7 @@ const img = require("../imgs/laundry.jpg")
 export const ImgLogo = styled.img`
   width: 7rem;
   height: auto;
-  margin: 0 0 10rem 0;
+  margin: 0 0 5rem 0;
 `
 
 export const Container = styled.div`
@@ -44,7 +44,7 @@ export const Button = styled.button`
   background: transparent;
   border-radius: 999px;
   box-shadow: #ffff 0 10px 15px -10px;
-  margin: 3rem;
+  margin: 3rem 3rem 10rem 3rem;
   box-sizing: border-box;
   color: #ffff;
   cursor: pointer;
@@ -68,4 +68,14 @@ export const Button = styled.button`
     color: ${({ theme }) => theme.colors.darkblue};
     transform: scale(0.98);
   }
+`
+export const Title = styled.h1`
+  font-size: 40px;
+  color: white;
+  margin: 15px 0 15px 0;
+`
+export const SubTitle = styled.h3`
+  font-size: 15px;
+  color: white;
+  margin: 10px 0 10px 0;
 `

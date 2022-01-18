@@ -23,6 +23,7 @@ import {
   Temp,
   WeatherText,
   FaceCard,
+  Title,
 } from "./styles/Details.styled"
 
 function Details() {
@@ -78,7 +79,7 @@ function Details() {
       <GlobalStyles />
       {/* search bar */}
       <TopContainer>
-        <h1>Can I put my clothes outside?</h1>
+        <Title>Can I dry my clothes outside?</Title>
         <SearchContainer>
           <SearchBar
             value={city}

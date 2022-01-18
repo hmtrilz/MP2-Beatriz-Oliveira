@@ -6,6 +6,8 @@ import {
   BackgroundLayer,
   Box,
   ImgLogo,
+  Title,
+  SubTitle,
 } from "./styles/Home.styled"
 import GlobalStyles from "./styles/Global.styles"
 
@@ -30,18 +32,14 @@ function Home() {
         <BackgroundLayer />
         <Box>
           <ImgLogo src={logo} />
-          <h1>Descobre se podes ou não meter a roupa a secar</h1>
-          <h2>
-            De certeza que já te aconteceu esqueceres-te do estendal da roupa lá
-            fora e começar a chover.
-          </h2>
-          <h2>
-            Verifica o tempo na tua cidade e decide se vais meter a roupa a
-            secar lá fora!
-          </h2>
+          <Title>Can I dry my clothes outside?</Title>
+
           <Link to="/details" style={{ textDecoration: "none" }}>
             <Button>Next</Button>
           </Link>
+
+          <SubTitle>Beatriz Oliveira</SubTitle>
+          <SubTitle>Mestrado em Comunicação e Tecnologias Web</SubTitle>
         </Box>
       </Container>
     </ThemeProvider>

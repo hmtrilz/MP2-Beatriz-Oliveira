@@ -161,3 +161,8 @@ export const FaceCard = styled.div`
     transform: scale(0.98);
   }
 `
+export const Title = styled.h1`
+  font-size: 30px;
+  color: #172940;
+  margin: 4rem 0 2rem 0;
+`
